@@ -73,6 +73,7 @@ header h1 {
 .auth-container form label {
     display: block;
     margin: 0 0 0.4em;
+
     font-size: 20px;
 }
 
@@ -137,4 +138,3 @@ button {
     background-color: inherit;
 }
 
-...
