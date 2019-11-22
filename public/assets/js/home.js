@@ -8,6 +8,17 @@ const $message = $('#message');
 
 let authSetting = 'login';
 
+sendUserToBoards();
+
+//location.replace performs same purpose
+//as redirect to (will not allow user to backspace)
+
+function sendUserToBoards() {
+  if (localStorage.getItem('user')){
+    location.replace('/boards');
+  }
+}
+
 function setAuth(setting) {
   authSetting = setting;
 
@@ -63,11 +74,10 @@ function handleLoginResponse(data, status, jqXHR) {
 
     localStorage.setItem('authorization', jwt);
     localStorage.setItem('user', user);
+    sendUserToBoards();
   } else {
     displayMessage('Invalid email or password.', 'danger');
   }
-
-  console.log(data, status, jqXHR);
 }
 //to destroy users in DB {
 // 1.stop server
